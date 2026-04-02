@@ -1,0 +1,97 @@
+# ================================
+# SECURE .HTACCESS CONFIGURATION
+# For Apache 2.4+ (XAMPP / PHP 8+)
+# ================================
+
+# Disable directory listing
+Options -Indexes
+
+# Hide server signature
+ServerSignature Off
+
+# Custom 403 error page (properly formatted HTML)
+ErrorDocument 403 "\
+<!DOCTYPE html>\
+<html lang=\"en\">\
+<head>\
+    <meta charset=\"UTF-8\">\
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\
+    <title>403 Forbidden</title>\
+    <style>\
+        * {\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+        }\
+        body {\
+            font-family: 'Segoe UI', Arial, sans-serif;\
+            background: #f5f5f5;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            min-height: 100vh;\
+            color: #333;\
+        }\
+        .container {\
+            text-align: center;\
+            padding: 40px;\
+        }\
+        .error-code {\
+            font-size: 120px;\
+            font-weight: 700;\
+            color: #c91ce0ff;\
+            margin-bottom: 20px;\
+        }\
+        .error-title {\
+            font-size: 32px;\
+            font-weight: 600;\
+            color: #333;\
+            margin-bottom: 15px;\
+        }\
+        .error-message {\
+            font-size: 16px;\
+            color: #666;\
+            line-height: 1.6;\
+            max-width: 500px;\
+            margin: 0 auto;\
+        }\
+        @media (max-width: 600px) {\
+            .error-code {\
+                font-size: 80px;\
+            }\
+            .error-title {\
+                font-size: 24px;\
+            }\
+            .error-message {\
+                font-size: 14px;\
+            }\
+        }\
+    </style>\
+</head>\
+<body>\
+    <div class=\"container\">\
+        <div class=\"error-code\">403</div>\
+        <div class=\"error-title\">Access Forbidden</div>\
+        <div class=\"error-message\">You don't have permission to access this resource.</div>\
+    </div>\
+</body>\
+</html>\
+"
+
+# Protect .htaccess file
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Block sensitive files
+<FilesMatch "\.(ini|log|sql|env|json|config|bak|zip|php~|sh|md)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block hidden files except .htaccess
+<FilesMatch "^\.(?!htaccess)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

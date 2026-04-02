@@ -1,0 +1,1582 @@
+/* style.css */
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+    --light: #F9F9F9;
+    --dark: #333333;
+    --dark-grey: #AAAAAA;
+    --light-grey: #E5E5E5;
+    --light-violet: #6a1ab1;
+    --medium-violet: #5c17a1;
+    --dark-violet: #4a1282;
+    --accent-violet: #9747FF;
+    --yellow: #FFD700;
+    --blue: #3f83f8;
+    --light-blue: #93c5fd;
+    --red: #EF4444;
+    --soft-shadow: 0 4px 12px rgba(106, 26, 177, 0.15);
+    --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body { 
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    background-color: var(--light); 
+    color: var(--dark); 
+    font-family: 'Poppins', sans-serif; 
+    line-height: 1.6;
+    overflow-y: auto;
+}
+
+.main-container { 
+    padding: 6px;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #f5f0ff, var(--light));
+    gap: 6px;
+}
+
+.header { 
+    background: linear-gradient(135deg, var(--light-violet), var(--dark-violet));
+    padding: 6px 8px;
+    color: var(--light); 
+    text-align: center; 
+    border-radius: 8px;
+    box-shadow: var(--soft-shadow);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+    min-height: 45px;
+}
+
+#event-name {
+    font-size: 0.9rem;
+    margin: 2px 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+#judge-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.content { 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    overflow: visible;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+.candidate-section { 
+    width: 100%; 
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.candidate-number { 
+    font-size: 0.9rem;
+    font-weight: bold; 
+    color: var(--light-violet); 
+    margin-top: 3px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.candidate-name {
+    font-size: 0.9rem;
+}
+
+.candidate-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--accent-violet);
+    display: block;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.scoring-section { 
+    width: 100%; 
+    background: linear-gradient(to bottom, var(--light-violet), var(--medium-violet));
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: var(--soft-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+    gap: 6px;
+}
+
+/* UPDATED: Simplified scoring header with CSS Grid */
+.scoring-header {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    flex-shrink: 0;
+    min-height: 90px;
+}
+
+/* Candidate Number Box - spans both rows vertically */
+.candidate-num-box {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--yellow);
+    color: var(--dark);
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    border: 2px solid gold;
+    height: 100%;
+}
+
+/* Candidate Name Box - top right */
+.candidate-name-box {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: var(--yellow);
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: var(--dark);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid gold;
+}
+
+#candidate-name-info {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark);
+    text-align: center;
+}
+
+/* Criteria Title Box - bottom right */
+.criteria-title-box {
+    grid-column: 2;
+    grid-row: 2;
+    background: linear-gradient(135deg, #FFE400, #FFD700);
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: var(--dark);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #FFC107;
+    position: relative;
+    overflow: visible;
+}
+
+#criteria-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark);
+    text-align: center;
+    background: linear-gradient(180deg, #FFEB3B, #FFD700);
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.score-header { 
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: var(--light);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.footer { 
+    background: linear-gradient(135deg, var(--light-violet), var(--dark-violet));
+    text-align: center; 
+    padding: 6px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    color: var(--light);
+    box-shadow: var(--soft-shadow);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 3px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.criteria-item {
+    margin-bottom: 0;
+}
+
+.criteria-name {
+    font-weight: 600;
+    color: var(--light);
+    font-size: 0.85rem;
+}
+
+.criteria-weight {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+}
+
+#criteria-list {
+    list-style-type: none;
+    padding: 10px 4px 4px 4px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-violet) var(--light-grey);
+    -webkit-overflow-scrolling: touch;
+}
+
+#criteria-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#criteria-list::-webkit-scrollbar-track {
+    background: var(--light-grey);
+    border-radius: 10px;
+}
+
+#criteria-list::-webkit-scrollbar-thumb {
+    background-color: var(--light-violet);
+    border-radius: 10px;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.stepper button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.stepper button:hover {
+    background-color: var(--light-blue);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stepper input[type="number"] {
+    width: 50px;
+    height: 28px;
+    font-size: 13px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--light);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.score-item {
+    width: 100%;
+    margin-bottom: 0;
+    transition: transform 0.2s ease;
+    height: 100px;
+}
+
+.score-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--light);
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    margin: 0 auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.score-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.score-row label {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 4px;
+    text-align: center;
+    width: 100%;
+    line-height: 1.3;
+}
+
+.score-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.score-control .btn {
+    width: 100px;
+    height: 42px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: none;
+}
+
+.score-control .btn-outline-danger {
+    background-color: var(--red);
+    color: var(--light);
+}
+
+.score-control .btn-outline-danger:hover {
+    background-color: #dc2626;
+    color: var(--light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.4);
+}
+
+.score-control .btn-outline-success {
+    background-color: var(--yellow);
+    color: var(--dark);
+}
+
+.score-control .btn-outline-success:hover {
+    background-color: #FFA500;
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);
+}
+
+.score-control input {
+    width: 100px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    border: 2px solid var(--dark-grey);
+    border-radius: 6px;
+    height: 36px;
+    color: var(--dark);
+    transition: all 0.2s ease;
+}
+
+.score-control input:focus {
+    border-color: var(--light-violet);
+    box-shadow: 0 0 0 3px rgba(106, 26, 177, 0.2);
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FFA500, var(--yellow));
+    border: none;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    max-width: 180px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: var(--dark);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 120px;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--yellow), #FFA500);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 215, 0, 0.35);
+    color: var(--dark);
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.25);
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#modal-title {
+    color: var(--dark-violet);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+#modal-message {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.scoring-section {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+.candidate-section {
+    animation: slideInUp 0.5s 0.2s ease forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* ============================================ */
+/* SMALL MOBILE PORTRAIT (up to 480px) */
+/* ============================================ */
+@media (max-width: 480px) {
+    .main-container {
+        padding: 4px;
+        gap: 4px;
+    }
+    
+    .header {
+        padding: 4px 6px;
+        min-height: 40px;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    #event-name {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+    
+    #judge-name {
+        font-size: 0.7rem;
+        width: 100%;
+    }
+    
+    .logo {
+        width: 30px;
+        height: 30px;
+        margin: 0;
+    }
+    
+    .candidate-img {
+        max-width: 140px;
+        max-height: 160px;
+    }
+    
+    .candidate-number,
+    .candidate-name {
+        font-size: 0.8rem;
+    }
+    
+    .scoring-section {
+        padding: 6px;
+    }
+    
+    .scoring-header {
+        min-height: 70px;
+        gap: 6px;
+        grid-template-columns: 60px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 30px;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 4px 8px;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR MOBILE */
+    #criteria-title {
+        padding: 4px 8px;
+        background: var(--yellow);
+        font-size: 0.9rem;
+    }
+    
+    #criteria-list {
+        padding: 14px 2px 2px 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .score-item {
+        height: auto;
+    }
+    
+    .score-row {
+        padding: 3px;
+    }
+    
+    .score-row label {
+        font-size: 0.95rem;
+        margin-bottom: 2px;
+    }
+    
+    .score-control {
+        gap: 3px;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        max-width: 150px;
+        font-size: 0.85rem;
+        padding: 5px 12px;
+        min-width: 100px;
+        width: 100%;
+    }
+    
+    .footer {
+        padding: 4px;
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================ */
+/* PHONE LANDSCAPE MODE (Small screens landscape) */
+/* ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main-container {
+        padding: 3px;
+        gap: 3px;
+    }
+    
+    .header {
+        padding: 3px 5px;
+        min-height: 32px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4px;
+    }
+    
+    #event-name {
+        font-size: 0.7rem;
+        width: auto;
+        flex: 1;
+        text-align: left;
+        margin: 0;
+    }
+    
+    #judge-name {
+        font-size: 0.65rem;
+        width: auto;
+        text-align: right;
+        margin-left: auto;
+    }
+    
+    .logo {
+        width: 26px;
+        height: 26px;
+        margin: 0 5px 0 0;
+    }
+    
+    .content {
+        flex-direction: row;
+        gap: 3px;
+    }
+    
+    .candidate-section {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-shrink: 0;
+    }
+    
+    .candidate-img {
+        max-width: 100%;
+        max-height: 100px;
+        margin-bottom: 2px;
+    }
+    
+    .candidate-number,
+    .candidate-name {
+        font-size: 0.65rem;
+        margin: 1px 0;
+        line-height: 1.1;
+    }
+    
+    .scoring-section {
+        width: 80%;
+        padding: 3px;
+    }
+    
+    .scoring-header {
+        min-height: 60px;
+        gap: 4px;
+        grid-template-columns: 50px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 25px;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 2px 6px;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 0.8rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR LANDSCAPE MOBILE */
+    #criteria-title {
+        padding: 3px 6px;
+        background: var(--yellow);
+        font-size: 0.75rem;
+    }
+    
+    #criteria-list {
+        padding: 14px 2px 2px 2px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }
+    
+    .score-row {
+        padding: 2px;
+    }
+    
+    .score-row label {
+        font-size: 0.85rem;
+        margin-bottom: 1px;
+    }
+    
+    .score-control {
+        gap: 2px;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 26px;
+        font-size: 0.95rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 26px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary {
+        padding: 3px 10px;
+        font-size: 0.75rem;
+        max-width: 120px;
+        min-width: 90px;
+        margin-top: 3px;
+        width: 100%;
+    }
+    
+    .footer {
+        padding: 3px;
+        font-size: 0.6rem;
+    }
+}
+
+/* ============================================ */
+/* EMULATOR / LANDSCAPE MODE (Any landscape with width > 600px) */
+/* ============================================ */
+@media (orientation: landscape) and (min-width: 600px) {
+    .main-container {
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .header {
+        padding: 6px 10px;
+        min-height: 45px;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    
+    #event-name {
+        font-size: 1rem;
+        width: auto;
+        flex: 1;
+        text-align: left;
+        margin: 0;
+    }
+    
+    #judge-name {
+        font-size: 0.85rem;
+        width: auto;
+        text-align: right;
+        margin-left: 15px;
+    }
+    
+    .logo {
+        width: 38px;
+        height: 38px;
+        margin: 0 10px 0 0;
+    }
+    
+    .content {
+        flex-direction: row !important;
+        gap: 6px;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    
+    .candidate-section {
+        width: 24% !important;
+        margin-bottom: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start;
+        flex-shrink: 0 !important;
+        z-index: 1;
+    }
+    
+    .candidate-img {
+        max-width: 100%;
+        max-height: 240px;
+        margin-bottom: 4px;
+    }
+    
+    .candidate-number {
+        font-size: 0.9rem;
+        margin: 3px 0;
+    }
+    
+    .candidate-name {
+        font-size: 0.9rem;
+        margin: 3px 0;
+    }
+    
+    .scoring-section {
+        width: 76% !important;
+        padding: 8px;
+        flex-shrink: 1;
+    }
+    
+    .scoring-header {
+        min-height: 80px;
+        gap: 8px;
+        grid-template-columns: 70px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 45px;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 4px 10px;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR LANDSCAPE */
+    #criteria-title {
+        padding: 4px 8px;
+        background: var(--yellow);
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 4px;
+        flex-direction: unset;
+    }
+    
+    .score-item {
+        margin-bottom: 0;
+    }
+    
+    .score-row {
+        padding: 4px;
+    }
+    
+    .score-row label {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+    }
+    
+    .score-control {
+        gap: 4px;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    
+    .btn-primary {
+        padding: 5px 14px;
+        font-size: 0.85rem;
+        max-width: 160px;
+        min-width: 130px;
+        margin-top: 5px;
+    }
+    
+    .footer {
+        padding: 5px;
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================ */
+/* TABLET PORTRAIT (576px - 767px) */
+/* ============================================ */
+@media (min-width: 576px) and (max-width: 767px) {
+    .main-container {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .header {
+        padding: 8px 12px;
+        min-height: 55px;
+    }
+    
+    #event-name {
+        font-size: 1.1rem;
+    }
+    
+    #judge-name {
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .candidate-img {
+        max-width: 220px;
+        max-height: 250px;
+    }
+    
+    .scoring-header {
+        min-height: 85px;
+        gap: 10px;
+        grid-template-columns: 75px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 48px;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 38px;
+        font-size: 1.15rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 38px;
+        font-size: 1.15rem;
+    }
+    
+    .score-row label {
+        font-size: 1.1rem;
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1.1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR TABLET PORTRAIT */
+    #criteria-title {
+        padding: 6px 10px;
+        background: var(--yellow);
+        font-size: 1.05rem;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 6px 12px;
+    }
+    
+    .btn-primary {
+        max-width: 200px;
+        font-size: 1rem;
+        min-width: 140px;
+    }
+}
+
+/* ============================================ */
+/* TABLET LANDSCAPE MODE (768px - 1023px) */
+/* ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-container {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .header {
+        padding: 8px 12px;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 50px;
+    }
+    
+    #event-name {
+        font-size: 1.15rem;
+        margin: 0;
+        text-align: left;
+        flex: 1;
+        width: auto;
+    }
+    
+    #judge-name {
+        font-size: 0.95rem;
+        margin-left: auto;
+        width: auto;
+        text-align: right;
+    }
+    
+    .logo {
+        width: 42px;
+        height: 42px;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .candidate-section {
+        width: 28%;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    .scoring-section {
+        width: 72%;
+        padding: 10px;
+    }
+    
+    .candidate-img {
+        max-width: 100%;
+        max-height: 280px;
+    }
+    
+    .candidate-number {
+        font-size: 1rem;
+    }
+    
+    .candidate-name {
+        font-size: 1rem;
+    }
+    
+    .scoring-header {
+        min-height: 90px;
+        gap: 10px;
+        grid-template-columns: 80px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 50px;
+    }
+    
+    .score-control input {
+        width: 100px;
+    }
+    
+    .score-row label {
+        font-size: 1.1rem;
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+    }
+    
+    .score-item {
+        margin-bottom: 0;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1.1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR TABLET LANDSCAPE */
+    #criteria-title {
+        padding: 6px 10px;
+        background: var(--yellow);
+        font-size: 1.05rem;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 6px 12px;
+    }
+    
+    .btn-primary {
+        max-width: 180px;
+        font-size: 0.95rem;
+        min-width: 140px;
+    }
+    
+    .footer {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================ */
+/* LARGE TABLET / SMALL DESKTOP (1024px - 1199px) */
+/* ============================================ */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .main-container {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .header {
+        padding: 10px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    #event-name {
+        font-size: 1.3rem;
+        margin: 0;
+        text-align: left;
+        flex: 1;
+        width: auto;
+    }
+    
+    #judge-name {
+        font-size: 1.05rem;
+        margin-left: auto;
+        width: auto;
+        text-align: right;
+    }
+    
+    .logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+        margin-bottom: 0;
+    }
+    
+    .content {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .candidate-section {
+        width: 30%;
+    }
+    
+    .scoring-section {
+        width: 70%;
+        padding: 12px;
+    }
+    
+    .candidate-img {
+        max-height: 350px;
+        border-width: 3px;
+    }
+    
+    .candidate-number {
+        font-size: 1.2rem;
+    }
+    
+    .candidate-name {
+        font-size: 1.1rem;
+    }
+    
+    .scoring-header {
+        min-height: 100px;
+        gap: 12px;
+        grid-template-columns: 90px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 50px;
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+    
+    .score-item {
+        margin-bottom: 0;
+    }
+    
+    .score-row label {
+        font-size: 1.15rem;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1.1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR LARGE TABLET */
+    #criteria-title {
+        padding: 6px 12px;
+        background: var(--yellow);
+        font-size: 1.1rem;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 8px 14px;
+    }
+    
+    .btn-primary {
+        max-width: 200px;
+        font-size: 1.05rem;
+        padding: 8px 18px;
+        min-width: 160px;
+    }
+}
+
+/* ============================================ */
+/* DESKTOP (1200px and up) */
+/* ============================================ */
+@media (min-width: 1200px) {
+    .main-container {
+        padding: 15px;
+        gap: 12px;
+        max-width: 1400px;
+    }
+    
+    .header {
+        padding: 12px 18px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    #event-name {
+        font-size: 1.5rem;
+        margin: 0;
+        text-align: left;
+        flex: 1;
+        width: auto;
+    }
+    
+    #judge-name {
+        font-size: 1.15rem;
+        margin-left: auto;
+        width: auto;
+        text-align: right;
+    }
+    
+    .logo {
+        width: 55px;
+        height: 55px;
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+    
+    .content {
+        flex-direction: row;
+        gap: 12px;
+    }
+    
+    .candidate-section {
+        width: 25%;
+    }
+    
+    .scoring-section {
+        width: 75%;
+        padding: 15px;
+    }
+    
+    .candidate-img {
+        max-height: 400px;
+        border-width: 3px;
+        border-radius: 12px;
+    }
+    
+    .candidate-number {
+        font-size: 1.3rem;
+    }
+    
+    .candidate-name {
+        font-size: 1.2rem;
+    }
+    
+    .scoring-header {
+        min-height: 110px;
+        gap: 15px;
+        grid-template-columns: 100px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 50px;
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+    
+    .score-item {
+        margin-bottom: 0;
+    }
+    
+    .score-row {
+        padding: 4px;
+    }
+    
+    .score-row label {
+        font-size: 1.2rem;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 42px;
+        font-size: 1.25rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 42px;
+        font-size: 1.25rem;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1.1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR DESKTOP */
+    #criteria-title {
+        padding: 6px 12px;
+        background: var(--yellow);
+        font-size: 1.1rem;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 8px 16px;
+    }
+    
+    .btn-primary {
+        max-width: 220px;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        min-width: 180px;
+    }
+}
+
+/* ============================================ */
+/* EXTRA LARGE DESKTOP (1400px and up) */
+/* ============================================ */
+@media (min-width: 1400px) {
+    .main-container {
+        padding: 20px;
+        gap: 15px;
+        max-width: 1600px;
+    }
+    
+    .header {
+        padding: 15px 20px;
+    }
+    
+    #event-name {
+        font-size: 1.7rem;
+    }
+    
+    #judge-name {
+        font-size: 1.3rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .candidate-section {
+        width: 22%;
+    }
+    
+    .scoring-section {
+        width: 78%;
+        padding: 18px;
+    }
+    
+    .candidate-img {
+        max-height: 450px;
+        border-radius: 15px;
+    }
+    
+    .scoring-header {
+        min-height: 120px;
+        gap: 18px;
+        grid-template-columns: 110px 1fr;
+    }
+    
+    .candidate-num-box {
+        font-size: 50px;
+    }
+    
+    #criteria-list {
+        padding: 16px 4px 4px 4px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    }
+    
+    .score-row label {
+        font-size: 1.25rem;
+    }
+    
+    .score-control .btn {
+        width: 100px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+    
+    .score-control input {
+        width: 100px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+    
+    #candidate-name-info,
+    #criteria-title {
+        font-size: 1.1rem;
+    }
+    
+    /* HIGHLIGHT ADJUSTMENT FOR EXTRA LARGE DESKTOP */
+    #criteria-title {
+        padding: 8px 14px;
+        background: var(--yellow);
+        font-size: 1.15rem;
+    }
+    
+    .candidate-name-box,
+    .criteria-title-box {
+        padding: 10px 18px;
+    }
+    
+    .btn-primary {
+        max-width: 240px;
+        font-size: 1.15rem;
+        min-width: 200px;
+    }
+}

@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('assets/img/bg1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.login-container {
+    background: rgba(34, 34, 34, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    right: 350px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.error-message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.error-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f1aeb5;
+}
+
+.login-container h2 {
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-btn {
+    background: #3E1760;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-btn:hover {
+    background: #581a8f;
+}
+
+.forgot-password {
+    color: #8014df;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Media Queries for Tablets */
+@media (max-width: 1024px) {
+    body {
+        background-position: right center;
+    }
+    
+    .login-container {
+        width: 80%;
+        max-width: 450px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: auto;
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    body {
+        background-position: right center;
+    }
+    
+    .login-container {
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: auto;
+    }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        padding: 15px;
+        max-width: 320px;
+    }
+    
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,101 @@
+#printModal .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+    font-family: var(--poppins);
+}
+
+#printModal .modal-header {
+    background: rgb(255, 255, 255);
+    border-radius: 10px 10px 0 0;
+    border: none;
+    padding: 20px;
+    color: rgb(31, 30, 30);
+    text-align: center;
+}
+
+#printModal .modal-header .modal-title {
+    font-family: var(--poppins);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+#printModal .modal-body {
+    padding: 25px;
+    text-align: left;
+}
+
+#printModal .form-label {
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+#printModal .form-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--grey);
+    font-size: 14px;
+}
+
+#printModal .form-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem rgba(60, 145, 230, 0.25);
+}
+
+#printModal .modal-footer {
+    padding: 20px;
+    border-top: 1px solid var(--grey);
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#printModal .btn {
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 500;
+    border: none;
+    transition: all 0.2s ease;
+    font-family: var(--poppins);
+    font-size: 14px;
+}
+
+#printModal .btn-secondary {
+    background: var(--dark-grey);
+    color: var(--light);
+}
+
+#printModal .btn-secondary:hover {
+    background: #6c757d;
+    transform: translateY(-1px);
+}
+
+#printModal .btn-primary {
+    background: var(--blue);
+    color: var(--light);
+}
+
+#printModal .btn-primary:hover {
+    background: #1976d2;
+    transform: translateY(-1px);
+}
+
+#printModal input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+#printModal label {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+    color: var(--dark);
+}
+
+/* Category header styling */
+table tbody tr td.category-header {
+    text-align: center !important;
+    padding-left: 0 !important;
+    display: table-cell !important;
+    padding: 12px !important;
+}

@@ -1,0 +1,164 @@
+/* Modal Styling */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+    font-family: var(--poppins);
+}
+
+.modal-header {
+    background: rgb(255, 255, 255);
+    border-radius: 10px 10px 0 0;
+    border: none;
+    padding: 20px;
+    color: rgb(31, 30, 30);
+}
+
+.modal-header .modal-title {
+    font-family: var(--poppins);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 25px;
+    text-align: left;
+}
+
+.modal-body .form-label,
+.modal-body label {
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+.modal-body .form-control,
+.modal-body .form-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--grey);
+    font-size: 14px;
+    width: 100%;
+}
+
+.modal-body .form-control:focus,
+.modal-body .form-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem rgba(60, 145, 230, 0.25);
+    outline: none;
+}
+
+.modal-body .mb-3 {
+    margin-bottom: 1rem;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid var(--grey);
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal .btn {
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 500;
+    border: none;
+    transition: all 0.2s ease;
+    font-family: var(--poppins);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal .btn-secondary {
+    background: #6c757d;
+    color: var(--light);
+}
+
+.modal .btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.modal .btn-primary {
+    background: var(--blue);
+    color: var(--light);
+}
+
+.modal .btn-primary:hover {
+    background: #1976d2;
+    transform: translateY(-1px);
+}
+
+.modal .btn-success {
+    background: #0d6efd;
+    color: var(--light);
+}
+
+.modal .btn-success:hover {
+    background: #0b5ed7;
+    transform: translateY(-1px);
+}
+
+.modal .btn-danger {
+    background: #dc3545;
+    color: var(--light);
+}
+
+.modal .btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Success Modal Header */
+#notificationModal .modal-header.bg-success {
+    background: #28a745 !important;
+    color: white !important;
+}
+
+/* Danger Modal Header */
+#confirmDeleteContestantModal .modal-header.bg-danger {
+    background: #dc3545 !important;
+    color: white !important;
+}
+
+/* File input styling */
+.modal-body input[type="file"] {
+    padding: 6px 12px;
+}
+
+.modal-body input[type="file"]::-webkit-file-upload-button {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.modal-body input[type="file"]::-webkit-file-upload-button:hover {
+    background: #1976d2;
+}
+
+/* Button alignment fixes */
+#contestantForm button[type="submit"],
+#editContestantForm button[type="submit"] {
+    margin-left: 0;
+    float: right;
+}
+
+/* Ensure proper spacing */
+.modal-body form {
+    clear: both;
+}
+
+.modal-body form::after {
+    content: "";
+    display: table;
+    clear: both;
+}
